@@ -1,0 +1,109 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f8fa;
+    margin: 0;
+    padding: 0;
+}
+
+.ex-tracker-header {
+    background: #4f8cff;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1.5rem 0;
+    text-align: center;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.total-expense-amount {
+    margin: 2rem auto 1rem auto;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #222;
+    text-align: center;
+}
+
+.ex-tracker-form-area {
+    background: #fff;
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.ex-tracker-form-area form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ex-tracker-form-area label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.ex-tracker-form-area select,
+.ex-tracker-form-area input[type="text"],
+.ex-tracker-form-area input[type="number"] {
+    padding: 0.7rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.ex-tracker-form-area select:focus,
+.ex-tracker-form-area input:focus {
+    border-color: #4f8cff;
+}
+
+.add-expense-btn {
+    background: #4f8cff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.add-expense-btn:hover {
+    background: #2563eb;
+}
+
+.expense-item-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+.expense-debit-item-container,
+.expense-credit-item-container {
+    background: #fff;
+    min-width: 300px;
+    min-height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .expense-item-container {
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 95vw;
+    }
+    .expense-debit-item-container,
+    .expense-credit-item-container {
+        min-width: unset;
+        width: 100%;
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>TrackIt</title>
+    </head>
+    <body>
+        <div class="ex-tracker-header"></div>
+        <div class="total-expense-amount">0.00</div>
+        <div class="ex-tracker-form-area">
+            <form>
+                <label for="expense-type">Expense Type</label>
+                <select id="expense-type">
+                    <option value="credit">Select Type</option>
+                    <option value="credit">Credit</option>
+                    <option value="debit">Debit</option>
+                </select>
+                <input type="text" placeholder="Enter the description" id="desc" />
+                <input type="number" placeholder="Enter the amount" id="amount" />
+                <button type="submit" class="add-expense-btn">Add Expense</button>
+            </form>
+        </div>
+        <div class="expense-item-container">
+            <div class="expense-debit-item-container"></div>
+            <div class="expense-credit-item-container"></div>
+        </div>
+    </body>
+</html>
