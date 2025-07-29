@@ -5,7 +5,9 @@ const expenseAmount = document.getElementById("amount");
 const addExpenseButton = document.querySelector(".add-expense-btn");
 const creditDiv = document.querySelector(".expense-credit-item-container");
 const debitDiv = document.querySelector(".expense-debit-item-container");
+const totalAmountDiv = document.querySelector(".total-expense-amount");
 let expenseItems = [];
+let totalAmount = 0;
 class Expense {
     constructor(type, description, amount) {
         this.id = 0;
@@ -46,10 +48,25 @@ const displayExpenseItems = () => {
         containerDiv === null || containerDiv === void 0 ? void 0 : containerDiv.insertAdjacentHTML("beforeend", template);
     }
 };
+const calculateTotalAmount = () => {
+    return expenseItems.reduce((total, exp) => {
+        let amount = exp.amount;
+        if (exp.type === "debit") {
+            amount = -exp.amount;
+        }
+        total += amount;
+        return total;
+    }, 0);
+};
+const displayTotal = () => {
+    totalAmountDiv.textContent = totalAmount.toString();
+};
 addExpenseButton.addEventListener("click", (event) => {
     event.preventDefault();
     let type = expenseType.value === "credit" ? "credit" : "debit";
     const expense = new Expense(type, expenseDescription.value, expenseAmount.valueAsNumber);
     expenseItems.push(expense);
     displayExpenseItems();
+    totalAmount = calculateTotalAmount();
+    displayTotal();
 });

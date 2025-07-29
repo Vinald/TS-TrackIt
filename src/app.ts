@@ -4,8 +4,10 @@ const expenseAmount = document.getElementById("amount")! as HTMLInputElement;
 const addExpenseButton = document.querySelector(".add-expense-btn")! as HTMLButtonElement;
 const creditDiv = document.querySelector(".expense-credit-item-container")! as HTMLDivElement;
 const debitDiv = document.querySelector(".expense-debit-item-container")! as HTMLDivElement;
+const totalAmountDiv = document.querySelector(".total-expense-amount")! as HTMLDivElement;
 
 let expenseItems: Expense[] = [];
+let totalAmount = 0;
 
 class Expense {
     private static currentId: number = 0;
@@ -52,12 +54,29 @@ const displayExpenseItems = () => {
     }
 };
 
+const calculateTotalAmount = () => {
+    return expenseItems.reduce((total, exp) => {
+        let amount = exp.amount;
+        if (exp.type === "debit") {
+            amount = -exp.amount;
+        }
+        total += amount;
+        return total;
+    }, 0);
+};
+
+const displayTotal = () => {
+    totalAmountDiv.textContent = totalAmount.toString();
+}
+
 addExpenseButton.addEventListener("click", (event) => {
     event.preventDefault();
 
     let type: "credit" | "debit" = expenseType.value === "credit" ? "credit" : "debit";
     const expense = new Expense(type, expenseDescription.value, expenseAmount.valueAsNumber);
     expenseItems.push(expense);
-
     displayExpenseItems();
+    
+    totalAmount = calculateTotalAmount();
+    displayTotal()
 });

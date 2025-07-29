@@ -97,21 +97,19 @@ body {
 
 .credit-item,
 .debit-item {
+    padding: 10px;
+    border-radius: 5px;
     padding: 5px, 2px;
     display: flex;
     margin-top: 10px;
 }
 
 .credit-item {
-    padding: 10px;
-    border-radius: 5px;
     background-color: #a3e4d7;
     border: #1abc9c 1.5px solid;
 }
 
 .debit-item {
-    padding: 10px;
-    border-radius: 5px;
     background-color: #f5b7b1;
     border: #ff5733 1.5px solid;
 }
