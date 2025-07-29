@@ -47,7 +47,7 @@ const displayExpenseItems = () => {
                 <div class="exp-desc">${expenseItem.getDescription()}</div>
                 <div class="exp-amount">${expenseItem.getAmount()}</div>
                 <div class="expense-delete">
-                    <button class="delete-expense-button">X</button>
+                    <button class="delete-expense-button" onclick="{deleteExpense(${expenseItem.getId()})}">X</button>
                 </div>
             </div>`;
         containerDiv?.insertAdjacentHTML("beforeend", template);
@@ -56,9 +56,9 @@ const displayExpenseItems = () => {
 
 const calculateTotalAmount = () => {
     return expenseItems.reduce((total, exp) => {
-        let amount = exp.amount;
+        let amount = exp.getAmount();
         if (exp.type === "debit") {
-            amount = -exp.amount;
+            amount = -exp.getAmount();
         }
         total += amount;
         return total;
@@ -67,7 +67,14 @@ const calculateTotalAmount = () => {
 
 const displayTotal = () => {
     totalAmountDiv.textContent = `Balance:` + totalAmount.toString();
-}
+};
+
+const deleteExpense = (id: number) => {
+    expenseItems = expenseItems.filter(exp => exp.getId() !== id);
+    displayExpenseItems();
+    totalAmount = calculateTotalAmount();
+    displayTotal();
+};
 
 addExpenseButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -78,5 +85,5 @@ addExpenseButton.addEventListener("click", (event) => {
     displayExpenseItems();
 
     totalAmount = calculateTotalAmount();
-    displayTotal()
+    displayTotal();
 });
