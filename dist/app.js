@@ -59,7 +59,7 @@ const calculateTotalAmount = () => {
     }, 0);
 };
 const displayTotal = () => {
-    totalAmountDiv.textContent = totalAmount.toString();
+    totalAmountDiv.textContent = `Balance:` + totalAmount.toString();
 };
 addExpenseButton.addEventListener("click", (event) => {
     event.preventDefault();

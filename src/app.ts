@@ -66,7 +66,7 @@ const calculateTotalAmount = () => {
 };
 
 const displayTotal = () => {
-    totalAmountDiv.textContent = totalAmount.toString();
+    totalAmountDiv.textContent = `Balance:` + totalAmount.toString();
 }
 
 addExpenseButton.addEventListener("click", (event) => {
@@ -76,7 +76,7 @@ addExpenseButton.addEventListener("click", (event) => {
     const expense = new Expense(type, expenseDescription.value, expenseAmount.valueAsNumber);
     expenseItems.push(expense);
     displayExpenseItems();
-    
+
     totalAmount = calculateTotalAmount();
     displayTotal()
 });
