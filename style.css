@@ -103,11 +103,15 @@ body {
 }
 
 .credit-item {
+    padding: 10px;
+    border-radius: 5px;
     background-color: #a3e4d7;
     border: #1abc9c 1.5px solid;
 }
 
 .debit-item {
+    padding: 10px;
+    border-radius: 5px;
     background-color: #f5b7b1;
     border: #ff5733 1.5px solid;
 }
@@ -127,9 +131,9 @@ body {
 
 .delete-expense-button {
     background-color: transparent;
-    border: #28282B 1px solid;
+    border: #28282b 1px solid;
     border-radius: 50%;
-    height: 20px; 
+    height: 20px;
 }
 
 @media (max-width: 700px) {
